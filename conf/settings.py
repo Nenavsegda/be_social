@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'be_social.urls'
+ROOT_URLCONF = 'conf.urls'
 
 TEMPLATES = [
     {
