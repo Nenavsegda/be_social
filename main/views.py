@@ -4,12 +4,14 @@ from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
-from main.models import Profile
+from main.models import Post, Profile
 
 
 @login_required(login_url='signin')
 def index(request):
-    return render(request, 'index.html')
+    user_object = User.objects.get(username=request.user.username)
+    user_profile = Profile.objects.get(user=user_object)
+    return render(request, 'index.html', {'user_profile': user_profile})
 
 def signup(request):
 
@@ -78,4 +80,9 @@ def settings(request):
 
 @login_required(login_url='signin')
 def upload(request):
-    return HttpResponse('<h1>Upload View</h1>')
+    if request.method =='POST':
+        user_name = request.user.username
+        image = request.FILES.get('image_upload')
+        caption = request.POST['caption']
+        Post.objects.create(user_name=user_name, image=image, caption=caption)
+    return redirect('/')
