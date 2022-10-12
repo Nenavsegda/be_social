@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
-from main.models import Post, Profile
+from main.models import LikePost, Post, Profile
 
 
 @login_required(login_url='signin')
@@ -91,4 +91,21 @@ def upload(request):
         image = request.FILES.get('image_upload')
         caption = request.POST['caption']
         Post.objects.create(user_name=user_name, image=image, caption=caption)
+    return redirect('/')
+
+@login_required(login_url='signin')
+def like_post(request):
+    username = request.user.username
+    post_id = request.GET.get('post_id')
+    post = Post.objects.get(id=post_id)
+    is_liked = LikePost.objects.filter(username=username, post_id=post_id).first()
+
+    if not is_liked:
+        LikePost.objects.create(username=username, post_id=post_id)
+        post.number_of_likes += 1
+    else:
+        is_liked.delete()
+        post.number_of_likes -= 1
+
+    post.save()
     return redirect('/')
