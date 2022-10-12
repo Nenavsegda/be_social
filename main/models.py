@@ -36,3 +36,11 @@ class LikePost(models.Model):
 
     def __str__(self):
         return f'{self.username} liked {self.post_id}'
+
+
+class FollowersCount(models.Model):
+    follower = models.CharField(max_length=100)
+    user = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.user
