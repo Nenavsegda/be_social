@@ -9,25 +9,27 @@
 
 ## Описание
 
-![image](https://user-images.githubusercontent.com/86165052/183287596-1327cdc9-65cc-46d9-96e3-e802c3ed3df3.png)
+![изображение](https://user-images.githubusercontent.com/86165052/195691628-8c55d60b-c415-48f9-88c7-57c3b3b6bc63.png)
 
 Сервис предназначен для обмена сообщениями и фотографиями. В приложении реализована аутентификация и возмоность создавать новых пользователей.
 
-![image](https://user-images.githubusercontent.com/86165052/183287612-c1bff677-0920-4064-9e85-eb1bce25ba16.png)
+![изображение](https://user-images.githubusercontent.com/86165052/195691949-f747d1d6-d443-4f57-af4a-baf374bdc9ce.png)
 
 На странице "Настройки аккаунта" можно загрузить фото профиля, добавить описание о себе и указать родной город.
 
-![image](https://user-images.githubusercontent.com/86165052/183287644-9eae9227-4368-45ff-9d79-fafc524a6d29.png)
+![изображение](https://user-images.githubusercontent.com/86165052/195692126-5977b727-2af5-4833-a909-25d521c4cf6d.png)
 
 На главное странице есть лента новостей, которая отображает только посты других пользователей, на которых мы подписаны. Также, есть отдельный раздел с рекомендациями новых пользователей.
 
-![image](https://user-images.githubusercontent.com/86165052/183287644-9eae9227-4368-45ff-9d79-fafc524a6d29.png)
+![изображение](https://user-images.githubusercontent.com/86165052/195692329-a946b2fd-ab9d-4411-9132-f0bae5a34ce1.png)
 
 Реализован поиск пользователей по имени, есть возможность ставить и убирать лайки, скачивать изображения.
 
-![image](https://user-images.githubusercontent.com/86165052/183287644-9eae9227-4368-45ff-9d79-fafc524a6d29.png)
+![изображение](https://user-images.githubusercontent.com/86165052/195692427-87e69e84-1973-425d-9a51-d128489c4ffd.png)
 
 На странице пользователя есть счетчик постов и лайков и кнопка "Читать", чтобы начать видеть посты этого пользователя.
+
+![изображение](https://user-images.githubusercontent.com/86165052/195692530-1cf6e0c1-ce0b-45df-b866-53ebafeeab4f.png)
 
 ## Разворачивание на машине разработчика
 
