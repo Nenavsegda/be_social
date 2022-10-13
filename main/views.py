@@ -17,9 +17,16 @@ def index(request):
     user_following = FollowersCount.objects.filter(follower=request.user.username).values_list('user')
     feed = list(chain(Post.objects.filter(user_name__in=user_following)))
 
+    all_users = User.objects.all()
+    followed_users = User.objects.filter(username__in=user_following)
+    suggestions_qs = set(all_users) - set(followed_users)
+    suggested_profiles = Profile.objects.filter(user__in=suggestions_qs).exclude(user=user_object)
+    follow_suggestions = list(chain(suggested_profiles))
+
     context = {
         'user_profile': user_profile,
         'posts': feed,
+        'follow_suggestions': follow_suggestions[:4],
     }
 
     return render(request, 'index.html', context)
