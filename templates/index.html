@@ -126,6 +126,7 @@
                     <div class="space-y-5 flex-shrink-0 lg:w-7/12">
 
                         {% for post in posts reversed %}
+                        {% if post.image.url != None %}
                         <div class="bg-white shadow rounded-md  -mx-2 lg:mx-0">
 
                             <div class="flex justify-between items-center px-4 py-3">
@@ -172,6 +173,7 @@
                             </div>
     
                         </div>
+                        {% endif %}
                         {% endfor %}
 
                     </div>
