@@ -1,3 +1,5 @@
+from itertools import chain
+
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -11,10 +13,13 @@ from main.models import FollowersCount, LikePost, Post, Profile
 def index(request):
     user_object = User.objects.get(username=request.user.username)
     user_profile = Profile.objects.get(user=user_object)
-    posts = Post.objects.all()
+
+    user_following = FollowersCount.objects.filter(follower=request.user.username).values_list('user')
+    feed = list(chain(Post.objects.filter(user_name__in=user_following)))
+
     context = {
         'user_profile': user_profile,
-        'posts': posts,
+        'posts': feed,
     }
 
     return render(request, 'index.html', context)
